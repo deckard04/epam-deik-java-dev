@@ -1,8 +1,8 @@
 package com.epam.training.money.impl;
 
-import com.epam.training.webshop.money.MonetaryValueConversionService;
-import com.epam.training.webshop.money.exception.UnknownConversionRateException;
-import com.epam.training.webshop.money.impl.BankService;
+import com.epam.training.webshop.core.financial.MonetaryValueConversionService;
+import com.epam.training.webshop.core.financial.exception.UnknownConversionRateException;
+import com.epam.training.webshop.core.financial.impl.BankService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

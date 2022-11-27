@@ -1,7 +1,7 @@
 package com.epam.training.money.impl;
 
-import com.epam.training.webshop.money.ConversionRate;
-import com.epam.training.webshop.money.impl.FixedConverter;
+import com.epam.training.webshop.core.financial.ConversionRate;
+import com.epam.training.webshop.core.financial.impl.FixedConverter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,7 +27,7 @@ class FixedConverterTest {
     }
 
     @Test
-    public void testCanConvertShouldReturnTrueWhenGivenConvertAbleCurrencies() {
+    void testCanConvertShouldReturnTrueWhenGivenConvertAbleCurrencies() {
         // Given
         // When
         final boolean actual = underTest.canConvert(USD_CURRENCY, HUF_CURRENCY);
@@ -36,7 +36,7 @@ class FixedConverterTest {
     }
 
     @Test
-    public void testCanConvertShouldReturnFalseWhenGivenUnConvertAbleCurrencyPair() {
+    void testCanConvertShouldReturnFalseWhenGivenUnConvertAbleCurrencyPair() {
         // Given
         // When
         final boolean actual = underTest.canConvert(HUF_CURRENCY, USD_CURRENCY);
@@ -45,7 +45,7 @@ class FixedConverterTest {
     }
 
     @Test
-    public void testCanConvertShouldReturnFalseWhenGivenOriginalCurrencyIsUnknown() {
+    void testCanConvertShouldReturnFalseWhenGivenOriginalCurrencyIsUnknown() {
         // Given
         // When
         final boolean actual = underTest.canConvert(EUR_CURRENCY, USD_CURRENCY);
@@ -54,7 +54,7 @@ class FixedConverterTest {
     }
 
     @Test
-    public void testCanConvertShouldReturnFalseWhenGivenTargetCurrencyIsUnknown() {
+    void testCanConvertShouldReturnFalseWhenGivenTargetCurrencyIsUnknown() {
         // Given
         // When
         final boolean actual = underTest.canConvert(USD_CURRENCY, EUR_CURRENCY);

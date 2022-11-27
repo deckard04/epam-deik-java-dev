@@ -1,7 +1,7 @@
 package com.epam.training.money.impl;
 
-import com.epam.training.webshop.money.ConversionRate;
-import com.epam.training.webshop.money.impl.IdenticalConverter;
+import com.epam.training.webshop.core.financial.ConversionRate;
+import com.epam.training.webshop.core.financial.impl.IdenticalConverter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -75,7 +75,7 @@ class IdenticalConverterTest {
      */
     @ParameterizedTest
     @MethodSource("canConvertTestData")
-    public void testCanConvert(final Currency from, final Currency target, final boolean expectedResult) {
+    void testCanConvert(final Currency from, final Currency target, final boolean expectedResult) {
         // Given
         // When
         final boolean actual = underTest.canConvert(from, target);
