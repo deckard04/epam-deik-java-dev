@@ -1,7 +1,8 @@
 package com.epam.training.webshop.core.user;
-import com.epam.training.webshop.core.user.model.UserDTO;
-import com.epam.training.webshop.core.user.persistence.entity.User;
 
+import com.epam.training.webshop.core.user.model.UserDTO;
+
+import java.util.List;
 import java.util.Optional;
 
 public interface UserService {
@@ -12,7 +13,13 @@ public interface UserService {
 
     Optional<UserDTO> describe();
 
-    User registerUser(String username, String password);
+    UserDTO registerUser(String username, String password);
 
-    Optional<User> getUser(Long id);
+    UserDTO getUser(Long id);
+
+    List<UserDTO> getUsers();
+
+    void deleteUser(Long id);
+
+    UserDTO updateUser(Long id, UserDTO user);
 }
