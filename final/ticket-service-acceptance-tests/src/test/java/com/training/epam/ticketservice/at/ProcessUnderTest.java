@@ -11,16 +11,13 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.google.common.util.concurrent.SimpleTimeLimiter;
 
 public class ProcessUnderTest implements AutoCloseable {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProcessUnderTest.class);
     private static final int JVM_STARTUP_FAILURE_WAIT_TIME = 150;
-    private static final int DELAY_BEFORE_CLEANING_PROCESS_OUTPUT = 250;
+    private static final int DELAY_BEFORE_CLEANING_PROCESS_OUTPUT = 1000;
 
     private Process process;
     private BufferedReader output;
