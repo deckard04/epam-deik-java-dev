@@ -14,9 +14,16 @@ import javax.persistence.Id;
 public class Room {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String name;
     private int rowNumb;
     private int columnNumb;
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                ", name='" + name + '\'' +
+                ", rowNumb=" + rowNumb +
+                ", columnNumb=" + columnNumb +
+                '}';
+    }
 }
