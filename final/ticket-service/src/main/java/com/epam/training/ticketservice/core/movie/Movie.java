@@ -15,10 +15,16 @@ import javax.persistence.Id;
 public class Movie {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String name;
     private String category;
     private int lengthInMinute;
 
+    @Override
+    public String toString() {
+        return "Movie{" +
+                ", name='" + name + '\'' +
+                ", category='" + category + '\'' +
+                ", lengthInMinute=" + lengthInMinute +
+                '}';
+    }
 }

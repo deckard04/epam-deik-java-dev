@@ -38,7 +38,6 @@ public class MovieServiceImplementation implements MovieService{
         movie.get().setLengthInMinute(length);
         movie.get().setCategory(category);
         movieRepository.save(movie.get());
-        MovieDto movieDto = new MovieDto(movie.get().getName(), movie.get().getCategory(), movie.get().getLengthInMinute());
         return Optional.of(new MovieDto(movie.get().getName(), movie.get().getCategory(), movie.get().getLengthInMinute()));
 
     }
@@ -48,8 +47,13 @@ public class MovieServiceImplementation implements MovieService{
         movieRepository.deleteByName(name);
     }
 
+    @Override
+    public Optional<Movie> findByName(String name) {
+        return movieRepository.findByName(name);
+    }
+
     private MovieDto mapEntityToDto(Movie movie) {
-        return   MovieDto.builder()
+        return MovieDto.builder()
                 .name(movie.getName())
                 .category(movie.getCategory())
                 .movieLength(movie.getLengthInMinute())

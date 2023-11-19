@@ -12,4 +12,6 @@ public interface MovieService {
     Optional<MovieDto> updateMovie(String name, String category, int length);
 
     void deleteMovie(String name);
+
+    Optional<Movie> findByName(String name);
 }

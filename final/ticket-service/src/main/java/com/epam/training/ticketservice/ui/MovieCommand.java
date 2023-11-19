@@ -53,6 +53,7 @@ public class MovieCommand {
                 .collect(Collectors.joining(""));
     }
 
+    @ShellMethodAvailability("isAvailable")
     @ShellMethod(key = "delete movie", value = "deletes the movie with the given name")
     public String deleteMovie(String name){
         movieService.deleteMovie(name);
