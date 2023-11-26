@@ -1,17 +1,16 @@
 package com.epam.training.ticketservice.core.movie;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class Movie {
 
     @Id
@@ -21,10 +20,22 @@ public class Movie {
 
     @Override
     public String toString() {
-        return "Movie{" +
-                ", name='" + name + '\'' +
-                ", category='" + category + '\'' +
-                ", lengthInMinute=" + lengthInMinute +
+        return "Movie{"
+                +
+                ", name='"
+                +
+                name + '\''
+                +
+                ", category='"
+                +
+                category
+                +
+                '\''
+                +
+                ", lengthInMinute="
+                +
+                lengthInMinute
+                +
                 '}';
     }
 }

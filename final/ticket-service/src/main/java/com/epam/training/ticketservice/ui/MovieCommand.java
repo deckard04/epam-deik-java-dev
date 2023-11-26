@@ -24,28 +24,28 @@ public class MovieCommand {
     private final UserService userService;
 
     @ShellMethodAvailability("isAvailable")
-    @ShellMethod(key="create movie", value = "create a new movie")
+    @ShellMethod(key = "create movie", value = "create a new movie")
     public MovieDto createMovie(String name, String category, int length) {
         MovieDto newMovie = MovieDto.builder()
                 .name(name)
                 .category(category)
-                .movieLength(length)
+                .lengthInMinute(length)
                 .build();
         movieService.createMovie(newMovie);
         return newMovie;
     }
 
     @ShellMethodAvailability("isAvailable")
-    @ShellMethod(key="update movie", value = "update movie details. The name identifies the movie")
-    public String updateMovie(String name, String category, int length){
+    @ShellMethod(key = "update movie", value = "update movie details. The name identifies the movie")
+    public String updateMovie(String name, String category, int length) {
         return movieService.updateMovie(name, category, length)
                 .map(movieDto -> movieDto + " edited successfully")
                 .orElse("Movie with this name does not exist");
     }
 
     @ShellMethod(key = "list movies", value = "shows all the movies")
-    public String listMovies(){
-        if (movieService.getMovieList().isEmpty()){
+    public String listMovies() {
+        if (movieService.getMovieList().isEmpty()) {
             return "There are no movies at the moment";
         }
         return movieService.getMovieList()
@@ -55,12 +55,15 @@ public class MovieCommand {
 
     @ShellMethodAvailability("isAvailable")
     @ShellMethod(key = "delete movie", value = "deletes the movie with the given name")
-    public String deleteMovie(String name){
-        movieService.deleteMovie(name);
+    public String deleteMovie(String name) {
+        if (movieService.findByName(name).isEmpty()){
+            movieService.deleteMovie(name);
+            return "This movie doesn't exist";
+        }
         return "deleted";
     }
 
-    private Availability isAvailable(){
+    private Availability isAvailable() {
         Optional<UserDto> user = userService.describe();
         return user.isPresent() && user.get().getRole() == Role.ADMIN
                 ? Availability.available()

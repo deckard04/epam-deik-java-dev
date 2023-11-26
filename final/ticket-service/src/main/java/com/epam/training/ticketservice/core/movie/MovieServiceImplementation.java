@@ -8,7 +8,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class MovieServiceImplementation implements MovieService{
+public class MovieServiceImplementation implements MovieService {
 
     private final MovieRepository movieRepository;
 
@@ -25,7 +25,7 @@ public class MovieServiceImplementation implements MovieService{
         Movie movie = new Movie();
         movie.setName(movieDto.getName());
         movie.setCategory(movieDto.getCategory());
-        movie.setLengthInMinute(movieDto.getMovieLength());
+        movie.setLengthInMinute(movieDto.getLengthInMinute());
         movieRepository.save(movie);
     }
 
@@ -38,7 +38,10 @@ public class MovieServiceImplementation implements MovieService{
         movie.get().setLengthInMinute(length);
         movie.get().setCategory(category);
         movieRepository.save(movie.get());
-        return Optional.of(new MovieDto(movie.get().getName(), movie.get().getCategory(), movie.get().getLengthInMinute()));
+        return Optional.of(
+                new MovieDto(movie.get().getName(),
+                        movie.get().getCategory(),
+                        movie.get().getLengthInMinute()));
 
     }
 
@@ -56,7 +59,7 @@ public class MovieServiceImplementation implements MovieService{
         return MovieDto.builder()
                 .name(movie.getName())
                 .category(movie.getCategory())
-                .movieLength(movie.getLengthInMinute())
+                .lengthInMinute(movie.getLengthInMinute())
                 .build();
     }
 }
