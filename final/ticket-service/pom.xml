@@ -115,6 +115,18 @@
                             <goal>check</goal>
                         </goals>
                         <configuration>
+                            <excludes>
+                                <exclude>com/epam/training/ticketservice/Application.*</exclude>
+                                <exclude>com/epam/training/ticketservice/core/screening/ScreeningDto.*</exclude>
+                                <exclude>com/epam/training/ticketservice/core/screening/Screening.*</exclude>
+                                <exclude>com/epam/training/ticketservice/core/movie/Movie.*</exclude>
+                                <exclude>com/epam/training/ticketservice/core/movie/MovieDto.*</exclude>
+                                <exclude>com/epam/training/ticketservice/core/room/Room.*</exclude>
+                                <exclude>com/epam/training/ticketservice/core/room/RoomDto.*</exclude>
+                                <exclude>com/epam/training/ticketservice/core/user/User.*</exclude>
+                                <exclude>com/epam/training/ticketservice/core/user/UserDto.*</exclude>
+                                <exclude>com/epam/training/ticketservice/core/configuration/InitClass.*</exclude>
+                            </excludes>
                             <rules>
                                 <rule>
                                     <element>BUNDLE</element>

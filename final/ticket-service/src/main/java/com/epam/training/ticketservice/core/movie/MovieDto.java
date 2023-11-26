@@ -1,7 +1,11 @@
 
 package com.epam.training.ticketservice.core.movie;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Value;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 @Builder
 @Value

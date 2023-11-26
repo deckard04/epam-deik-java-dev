@@ -42,12 +42,13 @@ public class ScreenCommand {
                     .movie(movieService.findByName(movieName).get())
                     .room(roomService.findByName(roomName).get())
                     .screeningDate(date)
-                    .screeningEndDate(date.plusSeconds(movieService.findByName(movieName).get().getLengthInMinute() * 60L))
+                    .screeningEndDate(
+                            date.plusSeconds(movieService.findByName(movieName).get().getLengthInMinute() * 60L))
                     .build();
             return screeningService.createScreening(screeningDto);
-        }else if(movieService.findByName(movieName).isEmpty())  {
+        } else if (movieService.findByName(movieName).isEmpty())  {
             return "Missing movie";
-        } else{
+        } else {
             return "Missing room";
         }
     }

@@ -2,7 +2,10 @@ package com.epam.training.ticketservice.core.screening;
 
 import com.epam.training.ticketservice.core.movie.Movie;
 import com.epam.training.ticketservice.core.room.Room;
-import lombok.*;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.RequiredArgsConstructor;
 
 
 import javax.persistence.Entity;
@@ -19,6 +22,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @RequiredArgsConstructor
+@Data
 public class Screening {
 
     @Id
@@ -37,7 +41,12 @@ public class Screening {
     private LocalDateTime screeningEndDate;
 
 
-
+    public Screening(Movie movie, Room room, LocalDateTime screeningDate, LocalDateTime screeningEndDate) {
+        this.movie = movie;
+        this.room = room;
+        this.screeningDate = screeningDate;
+        this.screeningEndDate = screeningEndDate;
+    }
 
     @Override
     public String toString() {
