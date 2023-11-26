@@ -10,7 +10,7 @@ public class UserDto {
     private String username;
     private Role role;
 
-    public UserDto(String username, Role role){
+    public UserDto(String username, Role role) {
         this.username = username;
         this.role = role;
     }

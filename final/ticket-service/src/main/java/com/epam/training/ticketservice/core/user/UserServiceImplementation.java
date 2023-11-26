@@ -7,7 +7,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class UserServiceImplementation implements UserService{
+public class UserServiceImplementation implements UserService {
 
     private final UserRepository userRepository;
     private UserDto loggedInUser = null;
@@ -15,7 +15,7 @@ public class UserServiceImplementation implements UserService{
     @Override
     public Optional<UserDto> login(String username, String password) {
         Optional<User> user = userRepository.findByUsernameAndPassword(username, password);
-        if (user.isEmpty()){
+        if (user.isEmpty()) {
             return Optional.empty();
         }
         loggedInUser = new UserDto(user.get().getUsername(), user.get().getRole());
