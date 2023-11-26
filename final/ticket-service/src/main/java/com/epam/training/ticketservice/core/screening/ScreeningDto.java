@@ -2,19 +2,16 @@ package com.epam.training.ticketservice.core.screening;
 
 import com.epam.training.ticketservice.core.movie.Movie;
 import com.epam.training.ticketservice.core.room.Room;
-import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 @Data
 @Getter
 @Setter
 @Builder
+@AllArgsConstructor
 public class ScreeningDto {
 
     private Room room;
@@ -26,10 +23,22 @@ public class ScreeningDto {
     public String toString() {
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         String formattedScreeningDate = screeningDate.format(format);
-        return movie.getName() + " (" +
-                movie.getCategory()  + ", " +
-                movie.getLengthInMinute() +" minutes), screened in room " +
-                room.getName() + ", at " +
+        return movie.getName()
+                +
+                " ("
+                +
+                movie.getCategory()
+                +
+                ", "
+                +
+                movie.getLengthInMinute()
+                +
+                " minutes), screened in room "
+                +
+                room.getName()
+                +
+                ", at "
+                +
                 formattedScreeningDate + System.lineSeparator();
 
     }

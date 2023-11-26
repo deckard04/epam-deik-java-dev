@@ -10,12 +10,17 @@ import java.util.Optional;
 
 @Repository
 public interface ScreeningRepository extends JpaRepository<Screening, Long> {
-    Optional<Screening> findByScreeningDateGreaterThanEqualAndScreeningEndDateLessThanEqualAndRoom_Name(LocalDateTime screeningDate, LocalDateTime screeningEndDate, String name);
+    Optional<Screening> findByScreeningDateGreaterThanEqualAndScreeningEndDateLessThanEqualAndRoomName(
+            LocalDateTime screeningDate, LocalDateTime screeningEndDate, String name);
 
-    Optional<Screening> findByScreeningDateGreaterThanEqualAndScreeningDateLessThanEqualAndRoom_Name(LocalDateTime screeningDate, LocalDateTime screeningDate1, String name);
-    Optional<Screening> findByScreeningEndDateGreaterThanEqualAndScreeningEndDateLessThanEqualAndRoom_Name(LocalDateTime screeningDate, LocalDateTime screeningDate1, String name);
+    Optional<Screening> findByScreeningDateGreaterThanEqualAndScreeningDateLessThanEqualAndRoomName(
+            LocalDateTime screeningDate, LocalDateTime screeningDate1, String name);
 
-    Optional<Screening> findByScreeningDateLessThanEqualAndScreeningEndDateGreaterThanEqualAndRoom_Name(LocalDateTime screeningDate, LocalDateTime screeningEndDate, String name);
+    Optional<Screening> findByScreeningEndDateGreaterThanEqualAndScreeningEndDateLessThanEqualAndRoomName(
+            LocalDateTime screeningDate, LocalDateTime screeningDate1, String name);
+
+    Optional<Screening> findByScreeningDateLessThanEqualAndScreeningEndDateGreaterThanEqualAndRoomName(
+            LocalDateTime screeningDate, LocalDateTime screeningEndDate, String name);
 
     Optional<Screening> findByScreeningEndDateGreaterThanEqual(LocalDateTime screeningDate);
 

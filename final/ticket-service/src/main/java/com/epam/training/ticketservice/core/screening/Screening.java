@@ -4,9 +4,16 @@ import com.epam.training.ticketservice.core.movie.Movie;
 import com.epam.training.ticketservice.core.room.Room;
 import lombok.*;
 
-import javax.persistence.*;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.GenerationType;
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 @Entity
 @Getter
@@ -31,13 +38,31 @@ public class Screening {
 
 
 
+
     @Override
     public String toString() {
-        return "Screening{" +
-                "id=" + id +
-                ", movieName='" + movie + '\'' +
-                ", roomName='" + room + '\'' +
-                ", screeningDate=" + screeningDate +
+        return "Screening{"
+                +
+                "id="
+                +
+                id
+                +
+                ", movieName='"
+                +
+                movie
+                +
+                '\''
+                +
+                ", roomName='"
+                +
+                room
+                +
+                '\''
+                +
+                ", screeningDate="
+                +
+                screeningDate
+                +
                 '}';
     }
 }
