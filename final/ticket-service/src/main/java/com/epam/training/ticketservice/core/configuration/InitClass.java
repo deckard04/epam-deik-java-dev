@@ -10,12 +10,12 @@ import javax.annotation.PostConstruct;
 
 @Component
 @RequiredArgsConstructor
-public class initClass {
+public class InitClass {
 
     private final UserRepository userRepository;
 
     @PostConstruct
-    public void init(){
+    public void init() {
         User user = new User("admin", "admin", Role.ADMIN);
         userRepository.save(user);
     }
