@@ -8,11 +8,11 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class RoomServiceImplementation implements RoomService{
+public class RoomServiceImplementation implements RoomService {
 
     private final RoomRepository roomRepository;
 
-    public void createRoom(RoomDto roomDto){
+    public void createRoom(RoomDto roomDto) {
         Room room = new Room();
         room.setName(roomDto.getName());
         room.setRowNumb(roomDto.getRowNumb());
@@ -28,7 +28,7 @@ public class RoomServiceImplementation implements RoomService{
     @Override
     public Optional<RoomDto> updateRoom(String name, int rowNum, int columnNum) {
         Optional<Room> room = roomRepository.findByName(name);
-        if (room.isEmpty()){
+        if (room.isEmpty()) {
             return Optional.empty();
         }
         room.get().setRowNumb(rowNum);
@@ -44,9 +44,7 @@ public class RoomServiceImplementation implements RoomService{
 
     @Override
     public List<RoomDto> listRooms() {
-       return  roomRepository.findAll().stream()
-                .map(this::roomsToDto)
-                .toList();
+        return  roomRepository.findAll().stream().map(this::roomsToDto).toList();
     }
 
     private RoomDto roomsToDto(Room room) {

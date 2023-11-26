@@ -24,7 +24,7 @@ public class RoomCommand {
 
     @ShellMethodAvailability("isAvailable")
     @ShellMethod(key = "create room", value = "create a new cinema room")
-    public RoomDto createRoom(String name, int rowNum, int columnNum){
+    public RoomDto createRoom(String name, int rowNum, int columnNum) {
         RoomDto roomDto = RoomDto.builder()
                 .name(name)
                 .rowNumb(rowNum)
@@ -36,7 +36,7 @@ public class RoomCommand {
 
     @ShellMethodAvailability("isAvailable")
     @ShellMethod(key = "update room", value = "update existing cinema room details")
-    public String updateRoom(String name, int rowNum, int columnNum){
+    public String updateRoom(String name, int rowNum, int columnNum) {
         return roomService.updateRoom(name, rowNum, columnNum)
                 .map(roomDto1 -> roomDto1 + "updated!")
                 .orElse("This room does not exist!");
@@ -44,13 +44,13 @@ public class RoomCommand {
 
     @ShellMethodAvailability("isAvailable")
     @ShellMethod(key = "delete room", value = " delete existing cinema room")
-    public void deleteRoom(String name){
+    public void deleteRoom(String name) {
         roomService.deleteRoomByName(name);
     }
 
     @ShellMethod(key = "list rooms", value = "list all the cinema rooms")
-    public String listRoom(){
-        if (roomService.listRooms().isEmpty()){
+    public String listRoom() {
+        if (roomService.listRooms().isEmpty()) {
             return "There are no rooms at the moment";
         }
         return roomService.listRooms().stream()
@@ -58,7 +58,7 @@ public class RoomCommand {
                 .collect(Collectors.joining(""));
     }
 
-    private Availability isAvailable(){
+    private Availability isAvailable() {
         Optional<UserDto> user = userService.describe();
         return user.isPresent() && user.get().getRole() == Role.ADMIN
                 ? Availability.available()

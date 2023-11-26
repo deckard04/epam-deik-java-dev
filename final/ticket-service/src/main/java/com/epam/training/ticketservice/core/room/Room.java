@@ -1,16 +1,16 @@
 package com.epam.training.ticketservice.core.room;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class Room {
 
     @Id
@@ -20,10 +20,22 @@ public class Room {
 
     @Override
     public String toString() {
-        return "Room{" +
-                ", name='" + name + '\'' +
-                ", rowNumb=" + rowNumb +
-                ", columnNumb=" + columnNumb +
+        return "Room{"
+                +
+                ", name='"
+                +
+                name
+                +
+                '\''
+                +
+                ", rowNumb="
+                +
+                rowNumb
+                +
+                ", columnNumb="
+                +
+                columnNumb
+                +
                 '}';
     }
 }
