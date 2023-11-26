@@ -61,7 +61,7 @@ class UserServiceImplTest {
     @Test
     void testLogoutShouldReturnThePreviouslyLoggedInUserWhenThereIsALoggedInUser() {
         // Given
-        User user = new User("user", "password", User.Role.USER);
+        User user = new User();
         when(userRepository.findByUsernameAndPassword("user", "pass")).thenReturn(Optional.of(user));
         Optional<UserDto> expected = underTest.login("user", "password");
 
